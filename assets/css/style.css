@@ -1,0 +1,545 @@
+:root {
+  --ves-navy: #1c3326;
+  --ves-teal: #2f5a3d;
+  --ves-sand: #edf1ee;
+  --ves-accent: #d4a017;
+  --ves-accent-deep: #b8860b;
+  --ves-ink: #152018;
+  --ves-mist: #f4f7f5;
+  --ves-line: #c5d0c8;
+  --ves-muted: #5a6b60;
+}
+
+body.app-body {
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 70% 40% at 0% 0%, rgba(47, 90, 61, 0.08), transparent 55%),
+    linear-gradient(180deg, #eef3f0 0%, var(--ves-mist) 45%, #e8eee9 100%);
+  min-height: 100vh;
+  color: var(--ves-ink);
+  font-family: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+
+.app-navbar {
+  background: linear-gradient(90deg, #121a14 0%, #1c3326 42%, #2f5a3d 100%);
+  box-shadow: 0 2px 14px rgba(21, 32, 24, 0.28);
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.app-navbar .navbar-brand {
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.15rem;
+}
+
+.app-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 0.4rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.app-navbar .nav-link:hover,
+.app-navbar .nav-link.active {
+  color: #fff !important;
+  background: rgba(212, 160, 23, 0.18);
+}
+
+.app-navbar .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.app-navbar .btn-outline-light:hover {
+  background: var(--ves-accent);
+  border-color: var(--ves-accent);
+  color: #152018;
+}
+
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(47, 90, 61, 0.35), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(28, 51, 38, 0.45), transparent 45%),
+    linear-gradient(135deg, #1c3326, #2f5a3d);
+  padding: 1.5rem;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 18px 50px rgba(21, 32, 24, 0.28);
+}
+
+.auth-card.wide {
+  max-width: 560px;
+}
+
+.auth-card .text-primary {
+  color: var(--ves-teal) !important;
+}
+
+.auth-card .btn-primary {
+  background: var(--ves-teal);
+  border-color: var(--ves-teal);
+  font-weight: 700;
+}
+
+.auth-card .btn-primary:hover {
+  background: #274a33;
+  border-color: #274a33;
+}
+
+.auth-card a {
+  color: var(--ves-teal);
+  font-weight: 600;
+}
+
+/* ----- Login page (scoped; register keeps .auth-wrap) ----- */
+.login-page {
+  --login-ink: #152018;
+  --login-forest: #1c3326;
+  --login-moss: #2f5a3d;
+  --login-signal: #d4a017;
+  --login-signal-deep: #b8860b;
+  --login-mist: #edf1ee;
+  --login-panel: #f4f7f5;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  color: var(--login-ink);
+  background: var(--login-forest);
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+}
+
+.login-brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(2rem, 5vw, 4rem);
+  color: #f2f6f3;
+  background:
+    linear-gradient(165deg, rgba(28, 51, 38, 0.2) 0%, rgba(21, 32, 24, 0.55) 55%, rgba(15, 22, 17, 0.85) 100%),
+    repeating-linear-gradient(
+      -32deg,
+      transparent,
+      transparent 14px,
+      rgba(212, 160, 23, 0.045) 14px,
+      rgba(212, 160, 23, 0.045) 15px
+    ),
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(47, 90, 61, 0.85), transparent 55%),
+    linear-gradient(145deg, #243f2e 0%, #1c3326 42%, #121a14 100%);
+}
+
+.login-brand-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 28rem;
+  animation: login-rise 0.7s ease-out both;
+}
+
+.login-kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 246, 243, 0.72);
+}
+
+.login-logo {
+  margin: 0 0 1rem;
+  font-family: "Syne", "Figtree", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.login-lede {
+  margin: 0 0 1.75rem;
+  max-width: 22rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(242, 246, 243, 0.82);
+}
+
+.login-campus {
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 160, 23, 0.35);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--login-signal);
+}
+
+.login-brand-mark {
+  position: absolute;
+  right: -8%;
+  bottom: -18%;
+  width: min(52vw, 420px);
+  height: min(52vw, 420px);
+  border: 2px solid rgba(212, 160, 23, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: login-pulse 8s ease-in-out infinite;
+}
+
+.login-brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 1px solid rgba(242, 246, 243, 0.12);
+  border-radius: 50%;
+}
+
+.login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background:
+    linear-gradient(180deg, #f7faf8 0%, var(--login-panel) 100%);
+}
+
+.login-panel-inner {
+  width: 100%;
+  max-width: 380px;
+  animation: login-fade 0.65s ease-out 0.12s both;
+}
+
+.login-heading {
+  margin: 0 0 0.35rem;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  color: var(--login-ink);
+}
+
+.login-sub {
+  margin: 0 0 1.5rem;
+  color: #5a6b60;
+  font-size: 0.95rem;
+}
+
+.login-form .form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--login-ink);
+}
+
+.login-form .form-control {
+  border: 1.5px solid #c5d0c8;
+  border-radius: 0.45rem;
+  padding: 0.7rem 0.85rem;
+  background: #fff;
+}
+
+.login-form .form-control:focus {
+  border-color: var(--login-moss);
+  box-shadow: 0 0 0 0.2rem rgba(47, 90, 61, 0.18);
+}
+
+.login-form .input-group .btn {
+  border: 1.5px solid #c5d0c8;
+  border-left: 0;
+  color: #4a5c50;
+  background: #fff;
+}
+
+.login-form .input-group .btn:hover {
+  background: var(--login-mist);
+  color: var(--login-ink);
+}
+
+.login-submit {
+  background: var(--login-moss);
+  border: none;
+  border-radius: 0.45rem;
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.login-submit:hover,
+.login-submit:focus {
+  background: #274a33;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.login-footer {
+  margin: 1.35rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #5a6b60;
+}
+
+.login-footer a {
+  color: var(--login-moss);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  color: var(--login-signal-deep);
+  text-decoration: underline;
+}
+
+.login-page .alert {
+  border: none;
+  border-radius: 0.45rem;
+  font-size: 0.9rem;
+}
+
+@keyframes login-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-brand {
+    min-height: 38vh;
+    align-items: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .login-logo {
+    font-size: clamp(2.6rem, 12vw, 3.6rem);
+  }
+
+  .login-lede {
+    margin-bottom: 1rem;
+  }
+
+  .login-brand-mark {
+    width: 240px;
+    height: 240px;
+    right: -40px;
+    bottom: -80px;
+  }
+
+  .login-panel {
+    padding: 1.75rem 1.25rem 2.5rem;
+  }
+}
+
+/* ----- App shell cosmetics ----- */
+main.container-fluid {
+  flex: 1 0 auto;
+}
+
+.app-body h1.h3,
+.app-body .h3 {
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ves-ink);
+}
+
+.app-body .text-muted {
+  color: var(--ves-muted) !important;
+}
+
+.stat-card {
+  border: 1px solid rgba(28, 51, 38, 0.06);
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(21, 32, 24, 0.06);
+  height: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(21, 32, 24, 0.1);
+}
+
+.stat-card .stat-value {
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ves-navy);
+}
+
+.stat-card .stat-label {
+  color: var(--ves-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.panel-card {
+  border: 1px solid rgba(28, 51, 38, 0.07);
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(21, 32, 24, 0.06);
+}
+
+.panel-card .card-body > .h5,
+.panel-card .card-body > h2.h5 {
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-weight: 700;
+  color: var(--ves-ink);
+}
+
+.otp-display {
+  font-size: 2.4rem;
+  letter-spacing: 0.35rem;
+  font-weight: 700;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  color: var(--ves-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ves-muted);
+  background: #eef3f0;
+  border-bottom-color: var(--ves-line);
+  font-weight: 700;
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-color: #e3ebe6;
+}
+
+.app-body .btn-primary {
+  background: var(--ves-teal);
+  border-color: var(--ves-teal);
+  font-weight: 600;
+}
+
+.app-body .btn-primary:hover,
+.app-body .btn-primary:focus {
+  background: #274a33;
+  border-color: #274a33;
+}
+
+.app-body .btn-outline-primary {
+  color: var(--ves-teal);
+  border-color: var(--ves-teal);
+  font-weight: 600;
+}
+
+.app-body .btn-outline-primary:hover {
+  background: var(--ves-teal);
+  border-color: var(--ves-teal);
+  color: #fff;
+}
+
+.app-body .btn-success {
+  background: #2f7a48;
+  border-color: #2f7a48;
+  font-weight: 600;
+}
+
+.app-body .btn-outline-info {
+  color: var(--ves-teal);
+  border-color: #7fa890;
+  font-weight: 600;
+}
+
+.app-body .btn-outline-info:hover {
+  background: var(--ves-sand);
+  color: var(--ves-ink);
+  border-color: var(--ves-teal);
+}
+
+.app-body .form-control:focus,
+.app-body .form-select:focus {
+  border-color: var(--ves-teal);
+  box-shadow: 0 0 0 0.2rem rgba(47, 90, 61, 0.18);
+}
+
+.app-body .alert {
+  border: none;
+  border-radius: 0.55rem;
+}
+
+.app-body .badge {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-accent {
+  background: var(--ves-accent);
+  border-color: var(--ves-accent);
+  color: #152018;
+  font-weight: 700;
+}
+
+.btn-accent:hover {
+  background: var(--ves-accent-deep);
+  border-color: var(--ves-accent-deep);
+  color: #fff;
+}
+
+.app-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(28, 51, 38, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ves-muted) !important;
+}
+
+@media (max-width: 991px) {
+  .app-navbar .nav-link {
+    padding: 0.45rem 0.75rem !important;
+  }
+}
