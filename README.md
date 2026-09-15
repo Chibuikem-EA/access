@@ -34,16 +34,6 @@ Web-based campus security system for **OTP-authenticated vehicle entry**, shuttl
    - Visit `http://localhost/fb%202/install.php` once if seeded passwords do not verify (regenerates admin/security hashes with PHP `password_hash`)
    - Delete or protect `install.php` after use
 
-## Default accounts
-
-| Role | Email | Password |
-|------|-------|----------|
-| Administrator | `admin@campus.edu` | `Admin@123` |
-| Security (demo) | `security@campus.edu` | `Security@123` |
-
-Change these passwords after first login.
-
-New **student / staff / driver** accounts register via `register.php` and stay **pending** until an administrator approves them.
 
 ## OTP flow
 
